@@ -2,6 +2,7 @@ package com.example.demo.dao
 
 import com.example.demo.repository.PersonRepository
 import org.springframework.stereotype.Component
+import com.example.demo.data.Person
 
 @Component
 class PersonDao(
@@ -12,4 +13,7 @@ class PersonDao(
 
     fun getPersonsByName(name: String) =
             personRepository.findByNameLike(name)
+
+    fun createPerson(name: String) =
+            personRepository.save(Person(name = name))
 }
